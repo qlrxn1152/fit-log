@@ -1,4 +1,3 @@
-```md
 # Fit Log
 
 Spring MVC 기반 운동 기록 관리 프로젝트입니다.
