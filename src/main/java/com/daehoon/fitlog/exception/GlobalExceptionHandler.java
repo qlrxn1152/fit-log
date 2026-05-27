@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundUserException.class)
-    public ResponseEntity<String> NotFoundUserExceptionHandler(NotFoundUserException e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ErrorResponse> NotFoundUserExceptionHandler(NotFoundUserException e) {
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+
+        return ResponseEntity
+                .status(errorResponse.getCode())
+                .body(errorResponse);
     }
 
 
