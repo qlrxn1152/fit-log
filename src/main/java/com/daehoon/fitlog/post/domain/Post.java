@@ -26,4 +26,13 @@ public class Post {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void editTitle(Post existPost, String editTitle) {
+        existPost.title = editTitle;
+    }
+
+    public void editContent(Post existPost, String editContent) {
+        existPost.content = editContent;
+    }
+
 }

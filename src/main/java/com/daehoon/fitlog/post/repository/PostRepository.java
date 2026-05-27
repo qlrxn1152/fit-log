@@ -12,5 +12,13 @@ public interface PostRepository {
 
     List<Post> findAll();
 
+    List<Post> findByTitle(String title);
+
+    Post editTitle(Post existPost, String editTitle);
+
+    Post editContent(Post existPost, String editContent);
+
+    void delete(Post post);
+
     void clearStore();
 }

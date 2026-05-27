@@ -29,7 +29,7 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public Post findById(Long id) {
-        log.info("[FIND POST] => [{}]", id);
+        log.info("[FIND POST BY ID] => [{}]", id);
         return store.get(id);
     }
 
@@ -37,6 +37,38 @@ public class PostRepositoryImpl implements PostRepository {
     public List<Post> findAll() {
         log.info("[FIND ALL] => [{}]", store);
         return new ArrayList<>(store.values());
+    }
+
+    @Override
+    public List<Post> findByTitle(String title) {
+        log.info("[FIND POST BY TITLE] => [{}]", title);
+
+        return store.values().stream()
+                .filter(post -> post.getTitle().equals(title))
+                .toList();
+    }
+
+    @Override
+    public Post editTitle(Post existPost, String editTitle) { // x001
+        log.info("[EDITING POST] => [{}]", existPost);
+
+        existPost.editTitle(existPost, editTitle);
+        return existPost;
+    }
+
+    @Override
+    public Post editContent(Post existPost, String editContent) { // x001
+        log.info("[EDITING POST] => [{}]", existPost);
+
+        existPost.editContent(existPost, editContent);
+        return existPost;
+    }
+
+    @Override
+    public void delete(Post post) {
+        log.info("[DELETING POST] => [{}]", post);
+
+        store.remove(post.getId());
     }
 
     @Override
