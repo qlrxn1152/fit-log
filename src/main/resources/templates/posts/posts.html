@@ -39,7 +39,7 @@
           오늘의 운동 기록
         </a>
       </td>
-      <td th:text="${post.createdAt}">2026-05-27</td>
+      <td th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm:ss')}">2026-05-27 12:12:12</td>
     </tr>
     </tbody>
   </table>
