@@ -40,12 +40,12 @@ public class PostRepositoryImpl implements PostRepository {
     }
 
     @Override
-    public List<Post> findByTitle(String title) {
+    public Post findByTitle(String title) {
         log.info("[FIND POST BY TITLE] => [{}]", title);
 
         return store.values().stream()
                 .filter(post -> post.getTitle().equals(title))
-                .toList();
+                .findFirst().get();
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface PostRepository {
 
     List<Post> findAll();
 
-    List<Post> findByTitle(String title);
+    Post findByTitle(String title);
 
     Post editTitle(Post existPost, String editTitle);
 

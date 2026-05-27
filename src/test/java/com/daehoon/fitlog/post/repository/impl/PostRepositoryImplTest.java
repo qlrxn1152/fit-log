@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PostRepositoryImplTest {
@@ -30,8 +31,7 @@ class PostRepositoryImplTest {
         Post savedPost = postRepository.save(post);
 
         // then
-        Assertions.assertThat(savedPost).isSameAs(post);
-
+        assertThat(savedPost).isSameAs(post);
     }
 
     @Test
@@ -44,8 +44,8 @@ class PostRepositoryImplTest {
         Post findPost = postRepository.findById(post.getId());
 
         // then
-        Assertions.assertThat(findPost).isNotNull();
-        Assertions.assertThat(findPost).isSameAs(post);
+        assertThat(findPost).isNotNull();
+        assertThat(findPost).isSameAs(post);
     }
 
     @Test
@@ -60,8 +60,64 @@ class PostRepositoryImplTest {
         List<Post> posts = postRepository.findAll();
 
         // then
-        Assertions.assertThat(posts).isNotNull();
-        Assertions.assertThat(posts).hasSize(2);
-        Assertions.assertThat(posts).contains(post1, post2);
+        assertThat(posts).isNotNull();
+        assertThat(posts).hasSize(2);
+        assertThat(posts).contains(post1, post2);
     }
+
+    @Test
+    void findByTitle() {
+        // given
+        Post post1 = new Post("title1", "content1");
+        postRepository.save(post1);
+
+        // when
+        Post findPost = postRepository.findByTitle("title1");
+
+        // then
+        assertThat(findPost).isNotNull();
+        assertThat(findPost).isSameAs(post1);
+    }
+
+    @Test
+    void editContent() {
+        // given
+        Post post = new Post("title1", "content1");
+        postRepository.save(post);
+
+        // when
+        postRepository.editContent(post, "content2");
+
+        // then
+        assertThat(post.getContent()).isEqualTo("content2");
+    }
+
+    @Test
+    void editTitle() {
+        // given
+        Post post = new Post("title1", "content1");
+        postRepository.save(post);
+
+        // when
+        postRepository.editTitle(post, "title2");
+
+        // then
+        assertThat(post.getTitle()).isEqualTo("title2");
+    }
+
+    @Test
+    void delete() {
+        // given
+        Post post = new Post("title1", "content1");
+        postRepository.save(post);
+
+        // when
+        postRepository.delete(post);
+        List<Post> posts = postRepository.findAll();
+
+        // then
+        assertThat(posts.size()).isEqualTo(0);
+        assertThat(posts.isEmpty()).isTrue();
+    }
+
 }
