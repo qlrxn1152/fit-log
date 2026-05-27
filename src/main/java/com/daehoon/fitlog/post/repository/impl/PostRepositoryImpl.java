@@ -19,11 +19,11 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public Post save(Post post) {
-        log.info("[SAVING POST] => [{}]", post);
 
         post.setId(++sequence);
         store.put(post.getId(), post);
 
+        log.info("[SAVING POST] => [{}]", post);
         return post;
     }
 

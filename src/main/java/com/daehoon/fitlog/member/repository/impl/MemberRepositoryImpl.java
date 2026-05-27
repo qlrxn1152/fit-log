@@ -35,7 +35,7 @@ public class MemberRepositoryImpl implements MemberRepository {
         return store.values().stream()
                 .filter(member -> username.equals(member.getUsername()))
                 .findFirst()
-                .get();
+                .orElseThrow();
     }
 
     @Override
