@@ -24,8 +24,10 @@ public class DataInit {
         postService.save(post1);
         postService.save(post2);
 
-        Member member = new Member("userA", "1234");
-        memberService.save(member);
+        Member member1 = new Member("userA", "1234");
+        Member member2 = new Member("test", "1234");
+        memberService.save(member1);
+        memberService.save(member2);
 
         log.info("[INIT DATA]");
     }

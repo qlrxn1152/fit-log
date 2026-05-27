@@ -1,14 +1,12 @@
 package com.daehoon.fitlog.member.repository.impl;
 
+import com.daehoon.fitlog.exception.member.NotFoundUserException;
 import com.daehoon.fitlog.member.domain.Member;
 import com.daehoon.fitlog.member.repository.MemberRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 @Slf4j
@@ -35,7 +33,7 @@ public class MemberRepositoryImpl implements MemberRepository {
         return store.values().stream()
                 .filter(member -> username.equals(member.getUsername()))
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(() -> new NotFoundUserException("유저를 찾지 못했습니다."));
     }
 
     @Override
