@@ -3,6 +3,7 @@ package com.daehoon.fitlog.login.controller;
 import com.daehoon.fitlog.member.domain.LoginMemberDto;
 import com.daehoon.fitlog.member.domain.Member;
 import com.daehoon.fitlog.member.service.MemberService;
+import com.daehoon.fitlog.web.SessionConst;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +46,7 @@ public class LoginController {
 
         log.info("[LOGIN SUCCESS] loginMember = [{}]", loginMember);
 
-        session.setAttribute("loginMember", loginMember); // 세션에 저장해서 내가 로그인한 사람이라는것을 증명 ?
+        session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember); // 세션에 저장해서 내가 로그인한 사람이라는것을 증명 ?
         return "redirect:/";
     }
 
