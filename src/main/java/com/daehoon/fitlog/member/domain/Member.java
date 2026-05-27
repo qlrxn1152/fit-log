@@ -21,4 +21,8 @@ public class Member {
         this.password = password;
         this.grade = Grade.USER;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

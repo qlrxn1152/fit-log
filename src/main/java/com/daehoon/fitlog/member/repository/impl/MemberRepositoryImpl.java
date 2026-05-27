@@ -16,13 +16,16 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     // TODO : 동시성 문제 가능성있음 => AtomicLong, ConcurrentHashMap 으로 변경
     private Map<Long, Member> store = new HashMap<>();
+    private long sequence = 0L;
 
 
     @Override
-    public Member save(Member member) {
+    public Member save(Member member) { // null, test, 1q2w3e, USER
         log.info("[MemberRepositoryImpl] [SAVE] member: {}", member);
-        Long id = member.getId();
-        store.put(++id, member);
+
+        member.setId(++sequence); // 1l, test, 1q2w3e, USER
+
+        store.put(member.getId(), member); // < 1l, (1l,test,1q2w3e,USER) >
 
         return member;
     }
