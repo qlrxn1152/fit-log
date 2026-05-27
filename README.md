@@ -14,4 +14,4 @@ Spring MVC 기반 운동 기록 관리 프로젝트입니다.
 
 ## Development Log
 
-- [2026-05-26](./docs/dev-log/2026-05-26.md)
+- [2026-05-27](docs/dev-log/2026-05-27.md)
