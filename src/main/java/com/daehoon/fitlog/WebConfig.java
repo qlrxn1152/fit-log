@@ -16,10 +16,14 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns(
                         "/",
                         "/login",
-                        "/members/add", // 회원가입 경로는 이거로 정함
+                        "/logout",
+                        "/members/add",
                         "/css/**",
+                        "/js/**",
+                        "/images/**",
                         "/*.ico",
-                        "/error"
+                        "/error",
+                        "/.well-known/**"
                 );
     }
 }

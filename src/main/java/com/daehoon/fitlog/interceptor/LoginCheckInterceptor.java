@@ -14,14 +14,14 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String requestURI = request.getRequestURI();
 
-        log.info("[LoginCheckInterceptor] requestURI = [{}]" + requestURI);
+        log.info("[LoginCheckInterceptor] requestURI = [{}]",  requestURI);
 
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null) {
             log.info("[LoginCheckInterceptor] 미인증 사용자 요청. requestURI = [{}]", requestURI);
 
-            response.sendRedirect("/login?redirectURL=" + requestURI);
+            response.sendRedirect("/login?requestURI=" + requestURI);
             return false; // 진행멈춤
         }
 

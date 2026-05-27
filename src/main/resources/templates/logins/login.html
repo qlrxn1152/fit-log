@@ -7,8 +7,11 @@
 <body>
 
 <form th:action="@{/login}" th:object="${loginMemberDto}" method="post">
+    <input type="hidden" name="requestURI" th:value="${requestURI}">
+
     <input type="text" id="username" th:field="*{username}" placeholder="아이디를 입력하세요." required>
     <input type="password" id="password"  th:field="*{password}" placeholder="비밀번호를 입력하세요." required>
+
     <button type="submit">로그인</button>
 </form>
 

@@ -18,13 +18,13 @@ public class PostController {
 
     private final PostService postService;
 
-    @GetMapping("/posts/add")
+    @GetMapping("/post/add")
     public String addPostHtml(Model model) {
         model.addAttribute("postForm", new PostForm());
         return "posts/addForm";
     }
 
-    @PostMapping("/posts/add")
+    @PostMapping("/post/add")
     public String addPost(@ModelAttribute PostForm postForm) {
         Post post = new Post(postForm.getTitle(), postForm.getContent());
         log.info("[POST SAVING] POST => [{}]", post);
