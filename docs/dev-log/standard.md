@@ -1,0 +1,55 @@
+# YYYY-MM-DD 개발 기록
+
+## 오늘 진행한 내용
+
+
+## 발생한 문제
+
+### 1. 문제 제목
+#### 상황
+
+---
+
+
+#### 원인
+
+---
+
+#### 해결
+
+---
+
+#### 배운 점
+
+---
+
+## 오늘 배운 점 정리
+
+-
+
+---
+
+## 다음에 할 일
+
+
+
+---
+
+
+## 깃 커밋 접두사
+### - feat: 새로운 기능
+### - fix: 버그 수정
+### - docs: 문서 수정
+### - refactor: 코드 정리
+### - chore: 설정/기타 작업
+### - test: 테스트 추가
+
+---
+## 예시
+
+### - git commit -m "docs: update README and development log"
+### - git commit -m "feat: add home page"
+### - git commit -m "feat: add member registration"
+### - git commit -m "fix: resolve login redirect loop"
+### - git commit -m "refactor: extract session manager"
+### - git commit -m "chore: configure gitignore"
