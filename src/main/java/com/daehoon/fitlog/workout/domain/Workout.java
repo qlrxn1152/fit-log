@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 public class Workout {
 
     private Long id;
-    private Target target;
-
+    private String targetName;
+    private Integer calories;
     private LocalDateTime workoutAt;
+
 }
