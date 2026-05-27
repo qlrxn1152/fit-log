@@ -61,7 +61,7 @@
         <!-- 로그인 후 화면 -->
         <div th:if="${member != null}">
             <p class="mt-4">
-                <strong th:text="${member.name}">사용자</strong>님, 환영합니다.
+                <strong th:text="${member.loginId}">사용자</strong>님, 환영합니다.
             </p>
 
             <div class="button-group">
