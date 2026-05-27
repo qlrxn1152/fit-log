@@ -1,82 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Fit Log</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <style>
-        .container {
-            max-width: 720px;
-        }
+  <meta charset="UTF-8">
+  <title>Fit Log</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <style>
+    .container {
+        max-width: 720px;
+        margin-top: 100px;
+    }
 
-        .main-card {
-            margin-top: 120px;
-            padding: 48px;
-            border: 1px solid #e5e5e5;
-            border-radius: 16px;
-            text-align: center;
-        }
+    .main-box {
+        padding: 48px;
+        border: 1px solid #e5e5e5;
+        border-radius: 16px;
+        text-align: center;
+    }
 
-        .main-title {
-            font-size: 36px;
-            font-weight: 700;
-        }
+    .main-title {
+        font-size: 36px;
+        font-weight: 700;
+    }
 
-        .main-description {
-            margin-top: 16px;
-            color: #666;
-        }
+    .main-description {
+        margin-top: 16px;
+        color: #666;
+    }
 
-        .button-group {
-            margin-top: 32px;
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-    </style>
+    .button-group {
+        margin-top: 32px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="main-card">
-        <h1 class="main-title">Fit Log</h1>
+  <div class="main-box">
+    <h1 class="main-title">Fit Log</h1>
 
-        <p class="main-description">
-            운동 기록을 관리하고, 나의 성장 과정을 남기는 서비스입니다.
-        </p>
+    <p class="main-description">
+      운동 기록과 생각을 남기는 개인 운동 기록 서비스입니다.
+    </p>
 
-        <!-- 로그인 전 화면 -->
-        <div th:if="${member == null}">
-            <div class="button-group">
-                <a class="btn btn-primary btn-lg" th:href="@{/members/add}">
-                    회원가입
-                </a>
+    <div class="button-group">
+      <a class="btn btn-primary btn-lg" th:href="@{/posts}">
+        게시물 목록
+      </a>
 
-                <a class="btn btn-outline-primary btn-lg" th:href="@{/login}">
-                    로그인
-                </a>
-            </div>
-        </div>
+      <a class="btn btn-outline-primary btn-lg" th:href="@{/posts/add}">
+        게시물 작성
+      </a>
 
-        <!-- 로그인 후 화면 -->
-        <div th:if="${member != null}">
-            <p class="mt-4">
-                <strong th:text="${member.loginId}">사용자</strong>님, 환영합니다.
-            </p>
-
-            <div class="button-group">
-                <a class="btn btn-primary btn-lg" th:href="@{/workouts}">
-                    내 운동 기록
-                </a>
-
-                <form th:action="@{/logout}" method="post">
-                    <button class="btn btn-outline-danger btn-lg" type="submit">
-                        로그아웃
-                    </button>
-                </form>
-            </div>
-        </div>
+      <a class="btn btn-outline-secondary btn-lg" th:href="@{/login}">
+        로그인
+      </a>
     </div>
+  </div>
 </div>
 
 </body>
