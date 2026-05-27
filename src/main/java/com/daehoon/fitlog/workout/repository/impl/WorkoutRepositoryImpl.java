@@ -27,4 +27,9 @@ public class WorkoutRepositoryImpl implements WorkoutRepository {
     public Workout findById(Long id) {
         return store.get(id);
     }
+
+    @Override
+    public void clearStore() {
+        store.clear();
+    }
 }

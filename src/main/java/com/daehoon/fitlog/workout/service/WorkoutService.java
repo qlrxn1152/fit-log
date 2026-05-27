@@ -7,4 +7,6 @@ public interface WorkoutService {
     Workout save(Workout workout);
 
     Workout findById(Long id);
+
+    void clearStore();
 }

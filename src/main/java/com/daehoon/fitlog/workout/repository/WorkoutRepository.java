@@ -8,4 +8,6 @@ public interface WorkoutRepository {
 
     Workout findById(Long id);
 
+    void clearStore();
+
 }
