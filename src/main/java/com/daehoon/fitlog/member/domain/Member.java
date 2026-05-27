@@ -13,4 +13,7 @@ public class Member {
     private String username;
     private String password;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
