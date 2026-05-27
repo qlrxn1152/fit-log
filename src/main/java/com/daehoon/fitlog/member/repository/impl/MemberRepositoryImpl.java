@@ -14,6 +14,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     @Override
     public Member save(Member member) {
+        member.getId();
     }
 
     @Override
