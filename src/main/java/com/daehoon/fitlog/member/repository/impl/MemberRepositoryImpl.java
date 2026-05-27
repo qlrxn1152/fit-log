@@ -39,4 +39,10 @@ public class MemberRepositoryImpl implements MemberRepository {
 
         return new ArrayList<>(store.values());
     }
+
+    @Override
+    public void clearStore() {
+        store.clear();
+    }
+
 }
