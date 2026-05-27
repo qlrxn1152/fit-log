@@ -13,4 +13,6 @@ public interface MemberRepository {
     Member findByUsername(String username);
 
     List<Member> findAll();
+
+    void clearStore();
 }

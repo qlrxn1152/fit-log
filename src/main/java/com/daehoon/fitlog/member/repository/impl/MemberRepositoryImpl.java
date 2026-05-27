@@ -17,11 +17,10 @@ public class MemberRepositoryImpl implements MemberRepository {
     private final Map<Long, Member> store = new HashMap<>();
     private Long sequence = 0L;
 
-
     @Override
     public Member save(Member member) {
-        Long id = member.getId();
-        store.put(++id, member);
+        member.setId(++sequence);
+        store.put(member.getId(), member);
 
         return member;
     }
@@ -42,5 +41,10 @@ public class MemberRepositoryImpl implements MemberRepository {
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
+    }
+
+    @Override
+    public void clearStore() {
+        store.clear();
     }
 }

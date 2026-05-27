@@ -16,4 +16,9 @@ public class Member {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Member(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
