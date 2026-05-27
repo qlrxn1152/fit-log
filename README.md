@@ -15,3 +15,12 @@ Spring MVC 기반 운동 기록 관리 프로젝트입니다.
 ## Development Log
 
 - [2026-05-27](docs/dev-log/2026-05-27.md)
+
+
+## Future Features
+
+- 운동 기록 통계
+- 운동 루틴 관리
+- 오운완 게시판
+- 댓글 기능
+- 좋아요 기능
