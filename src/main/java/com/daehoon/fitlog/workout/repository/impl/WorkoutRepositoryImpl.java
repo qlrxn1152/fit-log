@@ -13,16 +13,18 @@ import java.util.Map;
 public class WorkoutRepositoryImpl implements WorkoutRepository {
 
     private final Map<Long, Workout> store = new HashMap<>();
-    private final Long sequence = 0L;
+    private Long sequence = 0L;
 
 
     @Override
     public Workout save(Workout workout) {
-
+        workout.setId(++sequence);
+        store.put(workout.getId(), workout);
+        return workout;
     }
 
     @Override
     public Workout findById(Long id) {
-        return null;
+        return store.get(id);
     }
 }

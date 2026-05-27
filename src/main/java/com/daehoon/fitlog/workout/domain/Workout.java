@@ -15,4 +15,8 @@ public class Workout {
     private Integer calories;
     private LocalDateTime workoutAt;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
